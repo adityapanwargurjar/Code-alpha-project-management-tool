@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif; margin: 0; background-color: #f4f5f7; color: #172b4d;
+}
+header {
+  background-color: #026aa7; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center;
+}
+.auth-bar select { padding: 5px; border-radius: 4px; border: none; }
+.workspace { display: flex; height: calc(100vh - 60px); }
+.sidebar { width: 260px; background: white; padding: 15px; border-right: 1px solid #ddd; }
+.sidebar ul { list-style: none; padding: 0; }
+.sidebar li { padding: 8px 12px; margin-bottom: 5px; border-radius: 4px; cursor: pointer; background: #f4f5f7; }
+.sidebar li:hover, .sidebar li.active { background: #e2e4e6; font-weight: bold; }
+.board-view { flex: 1; padding: 20px; display: flex; flex-direction: column; }
+.board-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.hidden { display: none !important; }
+.kanban-grid { display: flex; gap: 15px; flex: 1; }
+.column { flex: 1; background: #ebecf0; border-radius: 6px; padding: 10px; display: flex; flex-direction: column; }
+.task-list { flex: 1; min-height: 200px; }
+.task-card { background: white; padding: 12px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.12); margin-bottom: 8px; position: relative; }
+.task-card h4 { margin: 0 0 8px 0; font-size: 0.95rem; }
+.task-badge { font-size: 0.75rem; background: #dfe1e6; padding: 2px 6px; border-radius: 3px; color: #42526e; }
+.task-actions { margin-top: 10px; display: flex; justify-content: space-between; align-items: center; }
+.task-actions select { font-size: 0.75rem; }
+.task-actions button { font-size: 0.75rem; padding: 2px 5px; cursor: pointer; }
+
+/* Real-time Socket Toast CSS Notifications */
+.toast {
+  position: fixed; top: 20px; right: 20px; background: #36b37e; color: white; padding: 12px 24px; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1000; transition: all 0.3s ease;
+}
+
+/* Modal UI Overlays */
+.modal { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; z-index:999; }
+.modal-content { background: white; padding: 20px; border-radius: 6px; width: 450px; max-width: 90%; }
+.close-btn { float: right; cursor: pointer; font-size: 1.5rem; }
+#comments-box { max-height: 200px; overflow-y: auto; margin: 15px 0; border: 1px solid #eee; padding: 8px; }
+.comment-node { font-size: 0.85rem; padding: 5px 0; border-bottom: 1px dashed #eee; }
+.modal-input { display: flex; gap: 5px; }
+.modal-input input { flex: 1; padding: 6px; }
