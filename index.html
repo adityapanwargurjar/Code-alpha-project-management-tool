@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collaborative Board Tool</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>CollabBoard</h1>
+    <div class="auth-bar">
+      <span>Logged In As:</span>
+      <select id="auth-user" onchange="onUserSessionChange()"></select>
+    </div>
+  </header>
+
+  <div id="notification-toast" class="toast hidden"></div>
+
+  <div class="workspace">
+    <aside class="sidebar">
+      <h3>Your Projects</h3>
+      <ul id="project-list"></ul>
+      <hr />
+      <h4>Create Group Project</h4>
+      <input type="text" id="new-project-name" placeholder="Project Name">
+      <p style="font-size:0.8rem; margin:5px 0 2px 0;">Select Members to Invite:</p>
+      <div id="members-checkboxes"></div>
+      <button onclick="createNewProject()" style="margin-top:10px; width:100%;">Create Board</button>
+    </aside>
+
+    <main class="board-view">
+      <div class="board-header">
+        <h2 id="active-project-title">Select a Project from the Sidebar</h2>
+        <div id="task-creator-bar" class="hidden">
+          <input type="text" id="new-task-title" placeholder="Add task title...">
+          <select id="new-task-assignee"></select>
+          <button onclick="addTask()">Add Task</button>
+        </div>
+      </div>
+
+      <div class="kanban-grid">
+        <div class="column">
+          <h3>📌 Todo</h3>
+          <div id="col-Todo" class="task-list"></div>
+        </div>
+        <div class="column">
+          <h3>⚡ In Progress</h3>
+          <div id="col-InProgress" class="task-list"></div>
+        </div>
+        <div class="column">
+          <h3>✅ Done</h3>
+          <div id="col-Done" class="task-list"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="comment-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeComments()">&times;</span>
+      <h3 id="modal-task-title">Task Feedback Details</h3>
+      <div id="comments-box"></div>
+      <div class="modal-input">
+        <input type="text" id="new-comment-input" placeholder="Type a comment response...">
+        <button onclick="submitComment()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
